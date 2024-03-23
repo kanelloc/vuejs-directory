@@ -1,0 +1,14 @@
+[
+  {
+    "githubUrl": "https://github.com/kanelloc/react-native-animated-header-scroll-view",
+    "npmPackageName": "@kanelloc/react-native-animated-header-scroll-view"
+  },
+  {
+    "githubUrl": "https://github.com/primefaces/primevue",
+    "npmPackageName": "primevue"
+  },
+  {
+    "githubUrl": "https://github.com/nuxt/ui",
+    "npmPackageName": "@nuxt/ui"
+  }
+]
