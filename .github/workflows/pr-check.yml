@@ -6,7 +6,7 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  Validate:
+  validate:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
