@@ -1,0 +1,17 @@
+commit-msg:
+  skip:
+    - merge
+    - rebase
+  parallel: true
+  scripts:
+    "commitlint.sh":
+      runner: bash
+
+pre-commit:
+  parallel: true
+  commands:
+    eslint:
+      glob: "*.{js,ts,jsx,tsx,vue}"
+      run: npm run lint {staged_files}
+    tsc:
+      run: npm run tsc

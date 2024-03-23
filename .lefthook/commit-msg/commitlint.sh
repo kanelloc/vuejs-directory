@@ -1,0 +1,1 @@
+echo $(head -n1 $1) | npx --no-install commitlint --color
