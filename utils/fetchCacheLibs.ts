@@ -17,6 +17,7 @@ const CACHED_LIBRARIES_RESULTS = path.join('data', 'vuejs-libraries-cached.json'
 export const fetchLibs = async (libraries: LibraryStatic[]): Promise<FormattedLibrary[]> => {
   const preformattedLibraries = getPrefetchedLibraries(libraries);
   const cacheExists = await fileExists(CACHED_LIBRARIES_RESULTS);
+  console.warn('cacheExists', cacheExists);
   return cacheExists ? await getLibrariesFromCache() : await cacheAndGetLibraries(preformattedLibraries);
 };
 
