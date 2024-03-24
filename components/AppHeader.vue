@@ -4,11 +4,11 @@
   >
     <div class="flex items-center justify-between px-4 py-2 md:px-8">
       <div
-        class="hidden h-12 items-center gap-2 md:flex"
+        class="h-12 items-center gap-2 flex"
         data-ci="header-title"
       >
         <VueIcon />
-        <h1 class="text-xl font-bold">Vue js Directory</h1>
+        <h1 class="text-xl font-bold hidden md:flex">Vue js Directory</h1>
       </div>
       <div
         class="flex items-center justify-end gap-1 md:gap-2 babis"
