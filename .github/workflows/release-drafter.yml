@@ -15,7 +15,6 @@ jobs:
       pull-requests: read
     runs-on: ubuntu-latest
     steps:
-      # Drafts your next Release notes as PRs are merged
       - uses: release-drafter/release-drafter@v5
         with:
           publish: true
