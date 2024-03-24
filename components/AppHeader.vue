@@ -29,6 +29,8 @@
           color="primary"
           square
           variant="solid"
+          to="https://github.com/kanelloc/vuejs-directory"
+          target="_blank"
         />
         <UButton
           icon="i-ant-design-plus-outlined"
