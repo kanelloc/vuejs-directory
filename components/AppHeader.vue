@@ -31,6 +31,7 @@
           variant="solid"
           to="https://github.com/kanelloc/vuejs-directory"
           target="_blank"
+          data-ci="header-github"
         />
         <UButton
           icon="i-ant-design-plus-outlined"
