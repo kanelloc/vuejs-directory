@@ -35,13 +35,20 @@ const getPrefetchedLibraries = (libraries: LibraryStatic[]): PreFetchedLibrary[]
 };
 
 const cacheAndGetLibraries = async (prefetchedLibraries: PreFetchedLibrary[]) => {
-  const results = await Promise.all(
-    prefetchedLibraries.map(async lib => {
-      return fetchExtraData(lib.owner, lib.libraryName, lib.npmPackageName);
-    }),
-  );
-  await jsonfile.writeFile(CACHED_LIBRARIES_RESULTS, results);
-  return results;
+  try {
+    const results = await Promise.all(
+      prefetchedLibraries.map(async lib => {
+        return fetchExtraData(lib.owner, lib.libraryName, lib.npmPackageName);
+      }),
+    );
+    console.warn('results', results);
+    await jsonfile.writeFile(CACHED_LIBRARIES_RESULTS, results);
+    console.warn('JSON_FILE WRITTEN');
+    return results;
+  } catch (error) {
+    console.error('ERROR 2', error);
+    return [];
+  }
 };
 
 const getLibrariesFromCache = async (): Promise<FormattedLibrary[]> => {
