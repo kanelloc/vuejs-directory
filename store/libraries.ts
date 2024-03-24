@@ -27,6 +27,7 @@ export const useLibrariesStore = defineStore('librariesStore', {
         const response = await $fetch('/api/libraries', {
           query: { search: this.searchQuery, pageNumber: this.pageNumber, pageSize: this.pageSize },
         });
+        console.warn('MPAMPIS', response);
 
         this.libraries = response.libraries;
         this.librariesCount = response.librariesCount;
