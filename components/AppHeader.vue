@@ -14,8 +14,9 @@
         class="flex items-center justify-end gap-1 md:gap-2 babis"
         data-ci="header-buttons"
       >
+        {{ themeIcon }}
+        {{ colorMode.preference }}
         <UButton
-          :loading="colorModeLoading"
           :icon="themeIcon"
           size="sm"
           color="primary"
@@ -54,10 +55,9 @@
   };
 
   const themeIcon = computed(() => {
+    console.warn(colorMode.preference === 'light');
+    const test = colorMode.preference === 'light' ? 'i-ant-design-moon-filled' : 'i-ant-design-sun-filled';
+    console.warn(test);
     return colorMode.preference === 'light' ? 'i-ant-design-moon-filled' : 'i-ant-design-sun-filled';
-  });
-
-  const colorModeLoading = computed(() => {
-    return colorMode.preference !== 'light' && colorMode.preference !== 'dark';
   });
 </script>
