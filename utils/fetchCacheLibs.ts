@@ -17,7 +17,6 @@ const CACHED_LIBRARIES_RESULTS = path.join('data', 'vuejs-libraries-cached.json'
 export const fetchLibs = async (libraries: LibraryStatic[]): Promise<FormattedLibrary[]> => {
   const preformattedLibraries = getPrefetchedLibraries(libraries);
   const cacheExists = await fileExists(CACHED_LIBRARIES_RESULTS);
-  console.warn('cacheExists', cacheExists);
   return cacheExists ? await getLibrariesFromCache() : await cacheAndGetLibraries(preformattedLibraries);
 };
 
@@ -35,20 +34,13 @@ const getPrefetchedLibraries = (libraries: LibraryStatic[]): PreFetchedLibrary[]
 };
 
 const cacheAndGetLibraries = async (prefetchedLibraries: PreFetchedLibrary[]) => {
-  try {
-    const results = await Promise.all(
-      prefetchedLibraries.map(async lib => {
-        return fetchExtraData(lib.owner, lib.libraryName, lib.npmPackageName);
-      }),
-    );
-    console.warn('results', results);
-    await jsonfile.writeFile(CACHED_LIBRARIES_RESULTS, results);
-    console.warn('JSON_FILE WRITTEN');
-    return results;
-  } catch (error) {
-    console.error('ERROR 2', error);
-    return [];
-  }
+  const results = await Promise.all(
+    prefetchedLibraries.map(async lib => {
+      return fetchExtraData(lib.owner, lib.libraryName, lib.npmPackageName);
+    }),
+  );
+  await jsonfile.writeFile(CACHED_LIBRARIES_RESULTS, results);
+  return results;
 };
 
 const getLibrariesFromCache = async (): Promise<FormattedLibrary[]> => {

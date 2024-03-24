@@ -55,9 +55,6 @@
   };
 
   const themeIcon = computed(() => {
-    console.warn(colorMode.preference === 'light');
-    const test = colorMode.preference === 'light' ? 'i-ant-design-moon-filled' : 'i-ant-design-sun-filled';
-    console.warn(test);
     return colorMode.preference === 'light' ? 'i-ant-design-moon-filled' : 'i-ant-design-sun-filled';
   });
 </script>
