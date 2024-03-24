@@ -3,7 +3,7 @@
     class="libraries-list-item bg-white dark:bg-gray-700"
     data-ci="libraries-list-item"
   >
-    <div class="h-16 lg:h-24">
+    <div class="lg:h-36 mb-4">
       <ULink
         class="font-extrabold text-base mb-2 hover:underline"
         data-ci="list-item-gh"
@@ -19,7 +19,7 @@
         {{ library.description }}
       </p>
     </div>
-    <div class="lg:mt-4 mt-8">
+    <div>
       <UTooltip
         v-if="library.githubUrl && library.starsCount"
         text="Go to repository page"
@@ -96,7 +96,7 @@
     margin-bottom: 1rem;
     p {
       display: -webkit-box;
-      -webkit-line-clamp: 3;
+      -webkit-line-clamp: 4;
       -webkit-box-orient: vertical;
       overflow: hidden;
       text-overflow: ellipsis;

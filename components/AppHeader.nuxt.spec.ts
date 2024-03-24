@@ -14,6 +14,8 @@ describe('AppHeader', async () => {
     const headerTitle = component.get('[data-ci="header-buttons"]');
     const buttons = headerTitle.findAllComponents('button');
 
-    expect(buttons.length).toBe(3);
+    const anchor = headerTitle.find('[data-ci="header-github"]');
+    expect(buttons.length).toBe(2);
+    expect(anchor.attributes('href')).toBe('https://github.com/kanelloc/vuejs-directory');
   });
 });
