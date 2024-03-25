@@ -30,8 +30,8 @@ jobs:
 
       - name: Commit and Push libraries changes
         run: |
-          git config --global user.email ""
-          git config --global user.name "kanelloc[bot]"
+          git config user.email ""
+          git config user.name "kanelloc[bot]"
           git add -A
           git commit -m "[ci skip] automatically update libraries info" -a || echo "No changes to commit"
           git pull --rebase
