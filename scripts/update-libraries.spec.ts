@@ -2,10 +2,6 @@ import { beforeEach, describe, expect, it, vi } from 'vitest';
 import { LIBRARIES_MOCKS } from '~/mocks/libraries';
 import { fetchNPMData } from '~/scripts/update-libraries';
 
-// Mocking $fetch globally
-//@ts-ignore
-global.$fetch = vi.fn();
-
 beforeEach(() => {
   vi.resetAllMocks();
 });
@@ -19,8 +15,6 @@ describe('Fetch cache libs', async () => {
       package: 'vue',
     };
 
-    //@ts-ignore
-    global.$fetch.mockResolvedValue(mockResponse);
     const response = await fetchNPMData(LIBRARIES_MOCKS[0].npmPackageName);
     expect(response).to.deep.equal(mockResponse);
   });
