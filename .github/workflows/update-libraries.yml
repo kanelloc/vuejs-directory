@@ -1,0 +1,38 @@
+name: Update Libraries Workflow
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  update-libraries:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      packages: write
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: 'npm'
+
+      - name: Install Dependencies
+        run: npm ci
+
+      - name: Run update-libraries.js Script
+        run: node scripts/update-libraries.js
+
+      - name: Commit and Push libraries changes
+        run: |
+          git config --global user.email ""
+          git config --global user.name "kanelloc[bot]"
+          git add -A
+          git commit -m "[ci skip] automatically update libraries info" -a || echo "No changes to commit"
+          git pull --rebase
+          git push origin main

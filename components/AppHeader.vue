@@ -14,8 +14,6 @@
         class="flex items-center justify-end gap-1 md:gap-2 babis"
         data-ci="header-buttons"
       >
-        {{ themeIcon }}
-        {{ colorMode.preference }}
         <UButton
           :icon="themeIcon"
           size="sm"

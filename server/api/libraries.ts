@@ -1,5 +1,5 @@
-import libraries from '../../data/vuejs-libraries.json';
-import { fetchLibs } from '~/utils/fetchCacheLibs';
+import libraries from '../../vuejs-libraries.json';
+import { fetchLibs } from '~/utils/fetch-libs';
 
 export default defineEventHandler(async event => {
   try {
@@ -11,7 +11,7 @@ export default defineEventHandler(async event => {
     // Calculate skip value based on pageNumber and pageSize
     const skip = (pageNumber - 1) * pageSize;
 
-    let filteredLibs = await fetchLibs(libraries);
+    let filteredLibs = fetchLibs();
 
     if (search) {
       filteredLibs = filteredLibs.filter(lib => lib.githubUrl.includes(search as string));
