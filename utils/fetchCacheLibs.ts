@@ -8,7 +8,10 @@ const CACHED_LIBRARIES_RESULTS = path.join(`${process.cwd()}/data`, 'vuejs-libra
  * Fetches libraries from cache if it exists, otherwise fetches data from the web and caches the result
  */
 export const fetchLibs = async (): Promise<FormattedLibrary[]> => {
-  return await getLibrariesFromCache();
+  console.warn('Fetching libraries from cache');
+  const libraries = await getLibrariesFromCache();
+  console.warn('Fetched libraries from cache', libraries);
+  return libraries;
 };
 
 const getLibrariesFromCache = async (): Promise<FormattedLibrary[]> => {
