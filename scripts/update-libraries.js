@@ -4,7 +4,7 @@ import { createRequire } from 'node:module';
 
 const libraries = createRequire(import.meta.url)(`../vuejs-libraries.json`);
 
-const CACHED_LIBRARIES_RESULTS = path.join(`${process.cwd()}/data`, 'vuejs-libraries-cached.json');
+const CACHED_LIBRARIES_RESULTS = path.join('data', 'vuejs-libraries-cached.json');
 
 const fetchGithubData = async (owner, libraryName) => {
   const data = await fetch(`https://api.github.com/repos/${owner}/${libraryName}`);

@@ -2,7 +2,7 @@ import type { FormattedLibrary } from '~/types/libraries';
 import path from 'node:path';
 import jsonfile from 'jsonfile';
 
-const CACHED_LIBRARIES_RESULTS = path.join(`${process.cwd()}/data`, 'vuejs-libraries-cached.json');
+const CACHED_LIBRARIES_RESULTS = path.join('data', 'vuejs-libraries-cached.json');
 
 /**
  * Fetches libraries from cache if it exists, otherwise fetches data from the web and caches the result
