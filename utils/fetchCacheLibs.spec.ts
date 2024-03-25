@@ -1,6 +1,6 @@
 import { beforeEach, describe, expect, it, vi } from 'vitest';
-import { fetchNPMData } from '~/utils/fetchCacheLibs';
 import { LIBRARIES_MOCKS } from '~/mocks/libraries';
+import { fetchNPMData } from '~/scripts/update-libraries';
 
 // Mocking $fetch globally
 //@ts-ignore
@@ -13,10 +13,10 @@ beforeEach(() => {
 describe('Fetch cache libs', async () => {
   it('Should fetch the correct number of downloads', async () => {
     const mockResponse = {
-      downloads: 1200,
-      start: '2024-01-01',
-      end: '2024-01-07',
-      package: 'your-package',
+      downloads: 4827535,
+      start: '2024-03-18',
+      end: '2024-03-24',
+      package: 'vue',
     };
 
     //@ts-ignore
