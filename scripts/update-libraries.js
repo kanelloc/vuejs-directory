@@ -49,7 +49,7 @@ export const cacheAndGetLibraries = async prefetchedLibraries => {
       return fetchExtraData(lib.owner, lib.libraryName, lib.npmPackageName);
     }),
   );
-  return jsonfile.writeFile(path.resolve('data', 'data.json'), results, { spaces: 2 }, err => {
+  return jsonfile.writeFile(path.resolve('assets', 'data.json'), results, { spaces: 2 }, err => {
     if (err) {
       console.warn('ERROR IN JSONFILE', err);
     } else {
