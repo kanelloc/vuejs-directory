@@ -1,8 +1,8 @@
 import jsonfile from 'jsonfile';
 import path from 'node:path';
-import { createRequire } from 'node:module';
+// import { createRequire } from 'node:module';
 
-const libraries = createRequire(import.meta.url)(`../vuejs-libraries.json`);
+// const libraries = createRequire(import.meta.url)(`../vuejs-libraries.json`);
 
 // const CACHED_LIBRARIES_RESULTS = path.join('data', 'data.json');
 
@@ -71,6 +71,6 @@ const splitGithubURL = url => {
   return { owner, libraryName };
 };
 
-const preformattedLibraries = getPrefetchedLibraries(libraries);
+// const preformattedLibraries = getPrefetchedLibraries(libraries);
 
-cacheAndGetLibraries(preformattedLibraries);
+// cacheAndGetLibraries(preformattedLibraries);
