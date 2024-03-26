@@ -4,7 +4,7 @@ import { createRequire } from 'node:module';
 
 const libraries = createRequire(import.meta.url)(`../vuejs-libraries.json`);
 
-const CACHED_LIBRARIES_RESULTS = path.join('data', 'data.json');
+// const CACHED_LIBRARIES_RESULTS = path.join('data', 'data.json');
 
 const fetchGithubData = async (owner, libraryName) => {
   const data = await fetch(`https://api.github.com/repos/${owner}/${libraryName}`);
@@ -43,17 +43,22 @@ const fetchExtraData = async (owner, libraryName, npmPackageName) => {
   };
 };
 
-const cacheAndGetLibraries = async prefetchedLibraries => {
+export const cacheAndGetLibraries = async prefetchedLibraries => {
   const results = await Promise.all(
     prefetchedLibraries.map(async lib => {
       return fetchExtraData(lib.owner, lib.libraryName, lib.npmPackageName);
     }),
   );
-  await jsonfile.writeFile(CACHED_LIBRARIES_RESULTS, results);
-  return results;
+  return jsonfile.writeFile(path.resolve('data', 'data.json'), results, { spaces: 2 }, err => {
+    if (err) {
+      console.warn('ERROR IN JSONFILE', err);
+    } else {
+      console.warn('\n** Done JSONFILE!');
+    }
+  });
 };
 
-const getPrefetchedLibraries = libraries => {
+export const getPrefetchedLibraries = libraries => {
   return libraries.map(lib => {
     return { ...splitGithubURL(lib.githubUrl), npmPackageName: lib.npmPackageName };
   });

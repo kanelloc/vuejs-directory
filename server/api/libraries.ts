@@ -11,7 +11,7 @@ export default defineEventHandler(async event => {
     // Calculate skip value based on pageNumber and pageSize
     const skip = (pageNumber - 1) * pageSize;
 
-    let filteredLibs = fetchLibs();
+    let filteredLibs = await fetchLibs();
 
     if (search) {
       filteredLibs = filteredLibs.filter(lib => lib.githubUrl.includes(search as string));
