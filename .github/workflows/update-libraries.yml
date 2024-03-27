@@ -2,8 +2,10 @@ name: Update Libraries Workflow
 
 on:
   push:
-    branches:
-      - main
+    branches: [ main ]
+  schedule:
+    # Run every 4 hours
+    - cron: '0 */4 * * *'
 
 jobs:
   update-libraries:
