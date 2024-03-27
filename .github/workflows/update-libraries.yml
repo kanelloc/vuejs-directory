@@ -4,8 +4,8 @@ on:
   push:
     branches: [ main ]
   schedule:
-    # Run every 4 hours
-    - cron: '0 */4 * * *'
+    # Run every 12 hours
+    - cron: '0 */12 * * *'
 
 jobs:
   update-libraries:
