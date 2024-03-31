@@ -24,13 +24,18 @@ const fetchGithubData = async (owner, libraryName) => {
 };
 
 export const fetchNPMData = async libraryName => {
-  const data = await fetch(`https://api.npmjs.org/downloads/point/last-week/${libraryName}`);
-  const response = await data.json();
+  const [downloadsResponse, registryResponse] = await Promise.all([
+    fetch(`https://api.npmjs.org/downloads/point/last-week/${libraryName}`),
+    fetch(`https://registry.npmjs.org/${libraryName}`),
+  ]);
+
+  const [registryData, downloadsData] = await Promise.all([registryResponse.json(), downloadsResponse.json()]);
   return {
-    downloads: response.downloads,
-    start: response.start,
-    end: response.end,
-    package: response.package,
+    modified: registryData.time.modified,
+    downloads: downloadsData.downloads,
+    start: downloadsData.start,
+    end: downloadsData.end,
+    package: downloadsData.package,
   };
 };
 
@@ -39,6 +44,7 @@ const fetchExtraData = async (owner, libraryName, npmPackageName) => {
   return {
     ...githubData,
     downloads: npmData.downloads,
+    modified: npmData.modified,
     npmPackageName,
   };
 };

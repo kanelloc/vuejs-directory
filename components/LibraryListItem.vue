@@ -78,17 +78,38 @@
         />
       </UTooltip>
     </div>
+    <div>
+      <UTooltip
+        v-if="library.modified"
+        text="Latest update"
+      >
+        <UButton
+          icon="i-heroicons-calendar-days-16-solid"
+          :label="modified"
+          :to="`https://www.npmjs.com/package/${library.npmPackageName}`"
+          target="_blank"
+          variant="ghost"
+          color="gray"
+          data-ci="list-item-downloads"
+        />
+      </UTooltip>
+    </div>
   </UCard>
 </template>
 
 <script setup lang="ts">
   import type { FormattedLibrary } from '~/types/libraries';
+  import dayjs from 'dayjs';
 
   type Props = {
     library: FormattedLibrary;
   };
 
-  defineProps<Props>();
+  const props = defineProps<Props>();
+
+  const modified = computed(() => {
+    return dayjs(props.library.modified).fromNow();
+  });
 </script>
 <style lang="scss" scoped>
   $module: 'libraries-list-item';

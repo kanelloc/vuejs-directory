@@ -37,6 +37,7 @@
     "@vitest/coverage-v8": "^1.4.0",
     "@vue/eslint-config-prettier": "^9.0.0",
     "@vue/test-utils": "^2.4.5",
+    "dayjs-nuxt": "^2.1.9",
     "eslint": "^8.57.0",
     "eslint-plugin-vue": "^9.23.0",
     "lefthook": "^1.6.7",
