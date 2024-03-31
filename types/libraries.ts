@@ -12,6 +12,7 @@ export type PreFetchedLibrary = {
 export type FormattedLibrary = GithubResponse & {
   downloads: number;
   npmPackageName: string;
+  modified: string;
 };
 
 export type GithubResponse = {

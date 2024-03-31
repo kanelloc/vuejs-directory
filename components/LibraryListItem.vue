@@ -77,6 +77,20 @@
           data-ci="list-item-downloads"
         />
       </UTooltip>
+      <UTooltip
+        v-if="library.modified"
+        text="Latest update"
+      >
+        <UButton
+          icon="i-heroicons-calendar-days-16-solid"
+          :label="$dayjs(library.modified).fromNow()"
+          :to="`https://www.npmjs.com/package/${library.npmPackageName}`"
+          target="_blank"
+          variant="ghost"
+          color="gray"
+          data-ci="list-item-downloads"
+        />
+      </UTooltip>
     </div>
   </UCard>
 </template>

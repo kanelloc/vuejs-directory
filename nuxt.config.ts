@@ -1,7 +1,7 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   devtools: { enabled: true },
-  modules: ['@pinia/nuxt', '@nuxt/ui', '@nuxt/test-utils/module'],
+  modules: ['@pinia/nuxt', '@nuxt/ui', '@nuxt/test-utils/module', 'dayjs-nuxt'],
   css: [],
   app: {},
   ui: {

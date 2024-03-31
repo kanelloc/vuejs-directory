@@ -18,4 +18,5 @@ export const LIBRARIES_MOCKS = Array.from({ length: 10 }, (_, i) => ({
   githubUrl: 'https://github.com/vuejs/core',
   downloads: 123,
   npmPackageName: 'vue',
+  modified: '2021-10-01T00:00:00Z',
 }));
