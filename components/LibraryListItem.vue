@@ -77,6 +77,8 @@
           data-ci="list-item-downloads"
         />
       </UTooltip>
+    </div>
+    <div>
       <UTooltip
         v-if="library.modified"
         text="Latest update"
