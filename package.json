@@ -16,7 +16,7 @@
   },
   "dependencies": {
     "@iconify-json/ant-design": "^1.1.15",
-    "@nuxt/ui": "^2.15.0",
+    "@nuxt/ui": "^2.15.1",
     "@pinia/nuxt": "^0.5.1",
     "jsonfile": "^6.1.0",
     "lodash.debounce": "^4.0.8",
